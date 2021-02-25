@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Block plugin update
+ * Plugin Name: Block plugin updates
  * Plugin URI: https://software.gieffeedizioni.it
  * Description: Prevent specific plugins from updating.
  * Version: 0.0.1
