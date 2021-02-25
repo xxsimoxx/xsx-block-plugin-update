@@ -6,4 +6,4 @@ Easily click on the unlocked lock in the plugin page.
 The lock gets closed and updates are disabled.
 That's all ::sunglasses::
 
-![Screenshot-1](images/logo-for-readme.jpg)
+![Screenshot-1](images/screenshot-1.jpg)
