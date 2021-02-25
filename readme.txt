@@ -1,4 +1,4 @@
-=== Icons for CP ===
+=== Block Plugin Updates ===
 
 Description:        Prevent specific plugins from updating. 
 Version:            0.0.1
