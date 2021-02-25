@@ -1,9 +1,0 @@
-.xsx-bpu-rotate {
-	animation: rotation 0.5s infinite linear;
-}
-
-@keyframes rotation {
-	0%   {color: inherit;}
-	50%  {color: red;  size: 120%}
-	100% {color: inherit;}
-}

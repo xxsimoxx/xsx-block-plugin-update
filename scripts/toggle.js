@@ -1,7 +1,8 @@
 jQuery(function($) {
 	$(document).on('click', '.xsx-bpu-trigger', function (e) {
 		var element = $(this)
-		element.addClass('xsx-bpu-rotate')
+		var spinner = element.parent().children('.spinner')
+		spinner.addClass('is-active')
 		e.preventDefault();
 		var plugin = element.data('file')
 		$.ajax({
@@ -17,12 +18,12 @@ jQuery(function($) {
 				element.removeClass('dashicons-lock')
 				element.removeClass('dashicons-unlock')
 				element.addClass(data.data.icon)
-				element.removeClass('xsx-bpu-rotate')
+				spinner.removeClass('is-active')
 			},
 			error    : function(request,error) {
 				alert("Error in AJAX request: " + request.responseJSON.data);
-				element.removeClass('xsx-bpu-rotate')
+				spinner.removeClass('is-active')
 			}
 		});
-	  });
+	});
 });

@@ -122,8 +122,6 @@ class BlockPluginsUpdate{
 																		'security'  => wp_create_nonce('xsx-bpu-nonce'),
 																	]);
 
-		wp_enqueue_style('xsx-bpu-style', plugin_dir_url(__FILE__).'/css/toggle.css');
-
 	}
 
 	function options() {
@@ -140,7 +138,7 @@ class BlockPluginsUpdate{
 	public function action_link($actions, $plugin_file) {
 
 		$lock = in_array($plugin_file, $this->options()) ? 'dashicons-lock' : 'dashicons-unlock';
-		$icon = '<a href="#"><i class="dashicon '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i></a>';
+		$icon = '<a href="#"><i class="dashicon '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i><span class="spinner"></span></a>';
 		array_unshift($actions, $icon);
 		return $actions;
 
