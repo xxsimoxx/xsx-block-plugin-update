@@ -41,6 +41,7 @@ class BlockPluginsUpdate{
 	}
 
 	public function disable_plugin_updates($value) {
+
 		$disable = $this->options();
 
 		if (!isset($value) || !is_object($value)) {
@@ -69,6 +70,7 @@ class BlockPluginsUpdate{
 	function toggle($slug) {
 
 		$options = $this->options();
+
 		if (in_array($slug, $options)) {
 			$options = array_diff($options, [$slug]);
 			update_option('xsx-bpu', $options);
@@ -96,7 +98,6 @@ class BlockPluginsUpdate{
 		}
 
 		$slug = $_POST['plugin'];
-
 		$status = $this->toggle($slug);
 		$icon = $status ? 'dashicons-lock' : 'dashicons-unlock';
 
@@ -126,18 +127,23 @@ class BlockPluginsUpdate{
 	}
 
 	function options() {
+
 		if ($this->options_cache !== false) {
 			return $this->options_cache;
 		}
+
 		$this->options_cache = get_option('xsx-bpu', []);
 		return $this->options_cache;
+
 	}
 
 	public function action_link($actions, $plugin_file) {
+
 		$lock = in_array($plugin_file, $this->options()) ? 'dashicons-lock' : 'dashicons-unlock';
 		$icon = '<a href="#"><i class="dashicon '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i></a>';
 		array_unshift($actions, $icon);
 		return $actions;
+
 	}
 
 }
