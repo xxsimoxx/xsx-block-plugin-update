@@ -25,9 +25,41 @@ class BlockPluginsUpdate{
 	public $options_cache = false;
 
 	public function __construct() {
-			add_filter('plugin_action_links', [$this, 'action_link'], 1000, 2);
+
+			// Add toggle to plugin page
+			add_filter('plugin_action_links', [$this, 'action_link'], PHP_INT_MAX - 10, 2);
+
+			// Script and style
 			add_action('admin_enqueue_scripts', [$this, 'script']);
+
+			// AJAX
 			add_action('wp_ajax_xsx_bpu_toggle', [$this, 'ajax_toggle']);
+
+			// Disable plugin updates
+			add_filter('site_transient_update_plugins', [$this, 'disable_plugin_updates']);
+
+	}
+
+	public function disable_plugin_updates($value) {
+		$disable = $this->options();
+
+		if (!isset($value) || !is_object($value)) {
+			return $value;
+		}
+
+		foreach ($disable as $plugin) {
+
+			if (!isset($value->response[$plugin])) {
+				continue;
+			}
+
+			$value->no_update[$plugin] = $value->response[$plugin];
+			unset($value->response[$plugin]);
+
+		}
+
+		return $value;
+
 	}
 
 	private function warn($x) {
