@@ -14,7 +14,6 @@ jQuery(function($) {
 			},
 			dataType :'json',
 			success  : function(data) {
-				console.log('Data OK: ' + data.data.plugin)
 				element.removeClass('dashicons-lock')
 				element.removeClass('dashicons-unlock')
 				element.addClass(data.data.icon)
