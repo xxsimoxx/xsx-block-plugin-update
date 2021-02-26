@@ -3,16 +3,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Block plugin updates 0.0.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/xsx-block-plugin-update\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/xsx-block-plugin-"
+"update\n"
+"Last-Translator: root <simone@gieffeedizioni.it>\n"
+"Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-02-26T10:32:45+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-02-26 11:32+0100\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: xsx-bpu\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Plugin Name of the plugin
 msgid "Block plugin updates"
@@ -24,7 +27,7 @@ msgstr ""
 
 #. Description of the plugin
 msgid "Prevent specific plugins from updating."
-msgstr ""
+msgstr "Blocca l'aggiornamento di plugin specifici."
 
 #. Author of the plugin
 msgid "Gieffe edizioni srl"
@@ -36,16 +39,16 @@ msgstr ""
 
 #: xsx-block-plugin-update.php:99
 msgid "Resume updates for this plugin"
-msgstr ""
+msgstr "Riprendi la ricerca aggiornamenti per questo plugin"
 
 #: xsx-block-plugin-update.php:99
 msgid "Block updates for this plugin"
-msgstr ""
+msgstr "Blocca la ricerca aggiornamenti per questo plugin"
 
 #: xsx-block-plugin-update.php:105
 msgid "Error in AJAX request: Invalid security token sent."
-msgstr ""
+msgstr "Errore nella richiesta AJAX: Token di sicurezza non valido."
 
 #: xsx-block-plugin-update.php:110
 msgid "Error in AJAX request: Plugin slug not found."
-msgstr ""
+msgstr "Errore nella richiesta AJAX: Slug non fornito."

@@ -96,7 +96,7 @@ class BlockPluginUpdates{
 	}
 
 	function aria($lock) {
-		return $lock ? esc_html__('Resume updates for this plugin') : esc_html__('Block updates for this plugin');
+		return $lock ? esc_html__('Resume updates for this plugin', 'xsx-bpu') : esc_html__('Block updates for this plugin', 'xsx-bpu');
 	}
 
 	public function ajax_toggle() {
