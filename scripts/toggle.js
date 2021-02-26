@@ -22,7 +22,7 @@ jQuery(function($) {
 				spinner.removeClass('is-active')
 				$('.plugin-update-tr[data-plugin="' + data.data.plugin +'"]').hide();
 			},
-			error    : function(request,error) {
+			error    : function(request) {
 				alert(request.responseJSON.data);
 				spinner.removeClass('is-active')
 			}

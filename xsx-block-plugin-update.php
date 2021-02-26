@@ -88,7 +88,7 @@ class BlockPluginUpdates{
 			return false;
 		}
 
-		array_push($options, $slug);
+		$options[] = $slug;
 		update_option('xsx-bpu', $options);
 		$this->options_cache = $options;
 		return true;
