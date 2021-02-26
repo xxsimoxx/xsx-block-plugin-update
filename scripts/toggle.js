@@ -20,6 +20,7 @@ jQuery(function($) {
 				element.addClass(data.data.icon)
 				element.parent().attr('aria-label', data.data.aria);
 				spinner.removeClass('is-active')
+				$('.plugin-update-tr[data-plugin="' + data.data.plugin +'"]').hide();
 			},
 			error    : function(request,error) {
 				alert(request.responseJSON.data);
