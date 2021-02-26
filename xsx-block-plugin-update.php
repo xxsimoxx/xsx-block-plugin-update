@@ -26,6 +26,9 @@ class BlockPluginUpdates{
 
 	public function __construct() {
 
+		// Load text domain
+		add_action('plugins_loaded', [$this, 'text_domain']);
+
 		// Add toggle to plugin page
 		add_filter('plugin_action_links', [$this, 'action_link'], PHP_INT_MAX - 10, 2);
 
@@ -41,6 +44,10 @@ class BlockPluginUpdates{
 		// Uninstall.
 		register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
 
+	}
+
+	public function text_domain() {
+		load_plugin_textdomain('xsx-bpu', false, basename(dirname(__FILE__)).'/languages');
 	}
 
 	public function disable_plugin_updates($value) {
@@ -88,25 +95,31 @@ class BlockPluginUpdates{
 
 	}
 
+	function aria($lock) {
+		return $lock ? esc_html__('Resume updates for this plugin') : esc_html__('Block updates for this plugin');
+	}
+
 	public function ajax_toggle() {
 
 		if (!check_ajax_referer('xsx-bpu-nonce', 'security', false)) {
-			wp_send_json_error('Invalid security token sent.', '401');
+			wp_send_json_error(esc_html__('Error in AJAX request: Invalid security token sent.', 'xsx-bpu'), '401');
 			exit();
 		}
 
 		if (!isset($_POST['plugin'])) {
-			wp_send_json_error('Plugin slug not found.', '401');
+			wp_send_json_error(esc_html__('Error in AJAX request: Plugin slug not found.', 'xsx-bpu'), '401');
 			exit();
 		}
 
 		$slug = $_POST['plugin'];
 		$status = $this->toggle($slug);
 		$icon = $status ? 'dashicons-lock' : 'dashicons-unlock';
+		$aria = $this->aria($status);
 
 		wp_send_json_success([
 								'plugin'	=> $slug,
 								'icon'		=> $icon,
+								'aria'		=> $aria,
 							]);
 
 		exit();
@@ -141,7 +154,9 @@ class BlockPluginUpdates{
 	public function action_link($actions, $plugin_file) {
 
 		$lock = in_array($plugin_file, $this->options()) ? 'dashicons-lock' : 'dashicons-unlock';
-		$icon = '<a href="#"><i class="dashicon '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i><span class="spinner"></span></a>';
+		$aria = $this->aria(in_array($plugin_file, $this->options()));
+		$icon = '<a href="#" aria-label="'.$aria.'"><i class="dashicon '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i><span class="spinner"></span></a>';
+
 		array_unshift($actions, $icon);
 		return $actions;
 

@@ -18,10 +18,11 @@ jQuery(function($) {
 				element.removeClass('dashicons-lock')
 				element.removeClass('dashicons-unlock')
 				element.addClass(data.data.icon)
+				element.parent().attr('aria-label', data.data.aria);
 				spinner.removeClass('is-active')
 			},
 			error    : function(request,error) {
-				alert("Error in AJAX request: " + request.responseJSON.data);
+				alert(request.responseJSON.data);
 				spinner.removeClass('is-active')
 			}
 		});

@@ -1,0 +1,43 @@
+# Copyright (C) 2021 Gieffe edizioni srl
+# This file is distributed under the same license as the Block plugin updates plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Block plugin updates 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/xsx-block-plugin-update\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-02-26T10:29:27+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: xsx-bpu\n"
+
+#. Plugin Name of the plugin
+msgid "Block plugin updates"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://software.gieffeedizioni.it"
+msgstr ""
+
+#. Description of the plugin
+msgid "Prevent specific plugins from updating."
+msgstr ""
+
+#. Author of the plugin
+msgid "Gieffe edizioni srl"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.gieffeedizioni.it"
+msgstr ""
+
+#: xsx-block-plugin-update.php:105
+msgid "Error in AJAX request: Invalid security token sent."
+msgstr ""
+
+#: xsx-block-plugin-update.php:110
+msgid "Error in AJAX request: Plugin slug not found."
+msgstr ""
