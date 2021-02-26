@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 
 require_once('classes/UpdateClient.class.php');
 
-class BlockPluginsUpdate{
+class BlockPluginUpdates{
 
 	public $options_cache = false;
 
@@ -153,4 +153,4 @@ class BlockPluginsUpdate{
 
 }
 
-new BlockPluginsUpdate;
+new BlockPluginUpdates;
