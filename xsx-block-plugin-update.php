@@ -26,17 +26,20 @@ class BlockPluginsUpdate{
 
 	public function __construct() {
 
-			// Add toggle to plugin page
-			add_filter('plugin_action_links', [$this, 'action_link'], PHP_INT_MAX - 10, 2);
+		// Add toggle to plugin page
+		add_filter('plugin_action_links', [$this, 'action_link'], PHP_INT_MAX - 10, 2);
 
-			// Script and style
-			add_action('admin_enqueue_scripts', [$this, 'script']);
+		// Script and style
+		add_action('admin_enqueue_scripts', [$this, 'script']);
 
-			// AJAX
-			add_action('wp_ajax_xsx_bpu_toggle', [$this, 'ajax_toggle']);
+		// AJAX
+		add_action('wp_ajax_xsx_bpu_toggle', [$this, 'ajax_toggle']);
 
-			// Disable plugin updates
-			add_filter('site_transient_update_plugins', [$this, 'disable_plugin_updates']);
+		// Disable plugin updates
+		add_filter('site_transient_update_plugins', [$this, 'disable_plugin_updates']);
+
+		// Uninstall.
+		register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
 
 	}
 
@@ -142,6 +145,10 @@ class BlockPluginsUpdate{
 		array_unshift($actions, $icon);
 		return $actions;
 
+	}
+
+	public static function uninstall() {
+		delete_option('xsx-bpu');
 	}
 
 }
