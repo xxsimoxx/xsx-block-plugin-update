@@ -1,14 +1,14 @@
 === Block Plugin Updates ===
 
 Description:        Prevent specific plugins from updating. 
-Version:            0.0.1
+Version:            1.0.0-rc1
 Requires PHP:       5.6
 Requires:           1.1.0
 Tested:             4.9.99
 Author:             Gieffe edizioni
 Author URI:         https://www.gieffeedizioni.it
 Plugin URI:         https://software.gieffeedizioni.it
-Download link:      https://github.com/xxsimoxx/xsx-block-plugin-update/releases/download/v.0.0.1/xsx-block-plugin-update-0.0.1.zip
+Download link:      https://github.com/xxsimoxx/xsx-block-plugin-update/releases/download/v.1.0.0-rc1/xsx-block-plugin-update-1.0.0-rc1.zip
 License:            GPLv2
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
     
@@ -23,6 +23,13 @@ The lock gets closed and updates are disabled.
 That's all!
 
 == Frequently asked questions ==
+
+> Is it good to prevent a plugin from upgrading?
+
+At a given version a plugin could stop being compatible with ClassicPress and you can stick to the latest compatible version.
+Is up to you verify that future updates doesn't patch bugs or security vulnerability that are present in the version you are using.
+If you stick to a version where a bug is discovered later, it's better to [search to an alternative plugin made for ClassicPress](https://directory.classicpress.net/plugins) or that supports WordPress 4.9.
+
 
 > Do you track plugin usage?
 
