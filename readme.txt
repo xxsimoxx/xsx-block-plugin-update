@@ -27,6 +27,7 @@ That's all!
 > Is it good to prevent a plugin from upgrading?
 
 At a given version a plugin could stop being compatible with ClassicPress and you can stick to the latest compatible version.
+Or can introduce crap you don't want.
 Is up to you verify that future updates doesn't patch bugs or security vulnerability that are present in the version you are using.
 If you stick to a version where a bug is discovered later, it's better to [search to an alternative plugin made for ClassicPress](https://directory.classicpress.net/plugins) or that supports WordPress 4.9.
 
