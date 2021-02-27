@@ -147,6 +147,11 @@ class BlockPluginUpdates{
 		}
 
 		$this->options_cache = get_option('xsx-bpu', []);
+
+		if (!is_array($this->options_cache)) {
+			return [];
+		}
+
 		return $this->options_cache;
 
 	}
