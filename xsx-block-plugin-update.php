@@ -20,6 +20,10 @@ if (!defined('ABSPATH')) {
 
 require_once('classes/UpdateClient.class.php');
 
+if (file_exists(dirname(__FILE__).'/devtools/resources.php')) {
+	require_once('devtools/resources.php');
+}
+
 class BlockPluginUpdates{
 
 	public $options_cache = false;
