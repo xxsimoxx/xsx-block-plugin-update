@@ -74,7 +74,17 @@ class BlockPluginUpdates{
 	}
 
 	private function warn($x) {
-		 trigger_error(print_r($x, true), E_USER_WARNING);
+		if (!defined('WP_DEBUG') || WP_DEBUG !== true ) {
+			return;
+		}
+/*
+		if (class_exists('CodePotent\UpdateManager\UpdateManager')){
+			$logger = new \CodePotent\UpdateManager\UpdateManager;
+			print_r($logger->filter_query_vars(['pippo']));
+			return;
+		}
+*/
+		trigger_error(print_r($x, true), E_USER_WARNING);
 	}
 
 	function toggle($slug) {
