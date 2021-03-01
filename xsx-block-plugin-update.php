@@ -74,7 +74,7 @@ class BlockPluginUpdates{
 	}
 
 	private function warn($x) {
-		if (!defined('WP_DEBUG') || WP_DEBUG !== true ) {
+		if (!defined('WP_DEBUG') || WP_DEBUG !== true) {
 			return;
 		}
 /*
@@ -148,7 +148,7 @@ class BlockPluginUpdates{
 		}
 
 		wp_enqueue_script('xsx-bpu-script', plugin_dir_url(__FILE__).'/scripts/toggle.js', ['jquery'], false, true);
-		wp_localize_script('xsx-bpu-script', 'xsx_bpu_datascript', [
+		wp_localize_script('xsx-bpu-script', 'xsx_bpu_localized', [
 																		'ajax_url'  => admin_url('admin-ajax.php'),
 																		'security'  => wp_create_nonce('xsx-bpu-nonce'),
 																	]);

@@ -10,7 +10,7 @@ jQuery(function($) {
 			type     : 'POST',
 			data     : {
 					action   : 'xsx_bpu_toggle',
-					security : xsx_bpu_datascript.security,
+					security : xsx_bpu_localized.security,
 					plugin   : plugin,
 			},
 			dataType :'json',
