@@ -116,6 +116,11 @@ class BlockPluginUpdates{
 			exit();
 		}
 
+		if (!current_user_can('manage_options')) {
+			wp_send_json_error(esc_html__('Error in AJAX request: You do not have permission to do that.', 'xsx-bpu'), '401');
+			exit();
+		}
+
 		if (!isset($_POST['plugin'])) {
 			wp_send_json_error(esc_html__('Error in AJAX request: Plugin slug not found.', 'xsx-bpu'), '401');
 			exit();

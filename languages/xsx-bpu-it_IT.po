@@ -5,50 +5,54 @@ msgstr ""
 "Project-Id-Version: Block plugin updates 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/xsx-block-plugin-"
 "update\n"
+"POT-Creation-Date: 2021-03-01T07:28:33+00:00\n"
+"PO-Revision-Date: 2021-02-26 11:32+0100\n"
 "Last-Translator: root <simone@gieffeedizioni.it>\n"
 "Language-Team: Italian\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-26T10:32:45+00:00\n"
-"PO-Revision-Date: 2021-02-26 11:32+0100\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: xsx-bpu\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Plugin Name of the plugin
 msgid "Block plugin updates"
 msgstr ""
 
-#. Plugin URI of the plugin
-msgid "https://software.gieffeedizioni.it"
+#: xsx-block-plugin-update.php:109
+msgid "Block updates for this plugin"
+msgstr "Blocca la ricerca aggiornamenti per questo plugin"
+
+#: xsx-block-plugin-update.php:115
+msgid "Error in AJAX request: Invalid security token sent."
+msgstr "Errore nella richiesta AJAX: Token di sicurezza non valido."
+
+#: xsx-block-plugin-update.php:125
+msgid "Error in AJAX request: Plugin slug not found."
+msgstr "Errore nella richiesta AJAX: Slug non fornito."
+
+#: xsx-block-plugin-update.php:120
+msgid "Error in AJAX request: You do not have permission to do that."
+msgstr "Errore nella richiesta AJAX: Non hai i permessi per farlo."
+
+#. Author of the plugin
+msgid "Gieffe edizioni srl"
 msgstr ""
 
 #. Description of the plugin
 msgid "Prevent specific plugins from updating."
 msgstr "Blocca l'aggiornamento di plugin specifici."
 
-#. Author of the plugin
-msgid "Gieffe edizioni srl"
+#: xsx-block-plugin-update.php:109
+msgid "Resume updates for this plugin"
+msgstr "Riprendi la ricerca aggiornamenti per questo plugin"
+
+#. Plugin URI of the plugin
+msgid "https://software.gieffeedizioni.it"
 msgstr ""
 
 #. Author URI of the plugin
 msgid "https://www.gieffeedizioni.it"
 msgstr ""
-
-#: xsx-block-plugin-update.php:99
-msgid "Resume updates for this plugin"
-msgstr "Riprendi la ricerca aggiornamenti per questo plugin"
-
-#: xsx-block-plugin-update.php:99
-msgid "Block updates for this plugin"
-msgstr "Blocca la ricerca aggiornamenti per questo plugin"
-
-#: xsx-block-plugin-update.php:105
-msgid "Error in AJAX request: Invalid security token sent."
-msgstr "Errore nella richiesta AJAX: Token di sicurezza non valido."
-
-#: xsx-block-plugin-update.php:110
-msgid "Error in AJAX request: Plugin slug not found."
-msgstr "Errore nella richiesta AJAX: Slug non fornito."
