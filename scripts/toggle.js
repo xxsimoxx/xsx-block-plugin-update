@@ -13,7 +13,7 @@ jQuery(function($) {
 					security : xsx_bpu_localized.security,
 					plugin   : plugin,
 			},
-			dataType :'json',
+			dataType : 'json',
 			success  : function(data) {
 				element.removeClass('dashicons-lock')
 				element.removeClass('dashicons-unlock')
