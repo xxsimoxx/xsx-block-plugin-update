@@ -74,6 +74,7 @@ class BlockPluginUpdates{
 	}
 
 	private function warn($message, $line = null, $file = null) {
+
 		if (!defined('WP_DEBUG') || WP_DEBUG !== true) {
 			return;
 		}
@@ -85,6 +86,7 @@ class BlockPluginUpdates{
 		}
 
 		trigger_error(print_r($x, true), E_USER_WARNING);
+
 	}
 
 	function toggle($slug) {
