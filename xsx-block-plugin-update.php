@@ -73,17 +73,17 @@ class BlockPluginUpdates{
 
 	}
 
-	private function warn($x) {
+	private function warn($message, $line = null, $file = null) {
 		if (!defined('WP_DEBUG') || WP_DEBUG !== true) {
 			return;
 		}
-/*
-		if (class_exists('CodePotent\UpdateManager\UpdateManager')){
-			$logger = new \CodePotent\UpdateManager\UpdateManager;
-			print_r($logger->filter_query_vars(['pippo']));
+
+		if (class_exists('CodePotent\PhpErrorLogViewer\PhpErrorLogViewer')) {
+			$logger = new \CodePotent\PhpErrorLogViewer\PhpErrorLogViewer;
+			$logger->log($message, 'notice', $file, $line);
 			return;
 		}
-*/
+
 		trigger_error(print_r($x, true), E_USER_WARNING);
 	}
 
