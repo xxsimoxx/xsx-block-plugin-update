@@ -80,8 +80,7 @@ class BlockPluginUpdates{
 		}
 
 		if (class_exists('CodePotent\PhpErrorLogViewer\PhpErrorLogViewer')) {
-			$logger = new \CodePotent\PhpErrorLogViewer\PhpErrorLogViewer;
-			$logger->log($message, 'notice', $file, $line);
+			\CodePotent\PhpErrorLogViewer\PhpErrorLogViewer::log($message, 'notice', $file, $line);
 			return;
 		}
 
