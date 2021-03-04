@@ -189,7 +189,13 @@ class BlockPluginUpdates{
 	}
 
 	public static function uninstall() {
+
+		if (!current_user_can('delete_plugins')) {
+			return;
+		}
+
 		delete_option('xsx-bpu');
+
 	}
 
 }
