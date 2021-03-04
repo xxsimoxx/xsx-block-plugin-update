@@ -79,8 +79,8 @@ class BlockPluginUpdates{
 			return;
 		}
 
-		if (class_exists('CodePotent\PhpErrorLogViewer\PhpErrorLogViewer')) {
-			\CodePotent\PhpErrorLogViewer\PhpErrorLogViewer::log($message, 'notice', $file, $line);
+		if (function_exists('codepotent_php_error_log_viewer_log')) {
+			codepotent_php_error_log_viewer_log($message, 'notice', $file, $line);
 			return;
 		}
 
