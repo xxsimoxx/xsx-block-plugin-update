@@ -84,6 +84,13 @@ class BlockPluginUpdates{
 			return;
 		}
 
+		$codepotent_file = plugin_dir_path(__DIR__).'codepotent-php-error-log-viewer/includes/functions.php';
+		if (file_exists($codepotent_file)) {
+			require_once($codepotent_file);
+			codepotent_php_error_log_viewer_log($message, 'notice', $file, $line);
+			return;
+		}
+
 		trigger_error(print_r($x, true), E_USER_WARNING);
 
 	}
