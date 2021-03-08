@@ -73,10 +73,18 @@ class BlockPluginUpdates{
 
 	}
 
-	private function warn($message, $line = null, $file = null) {
+	private function warn($message, $line = false, $file = false) {
 
 		if (!defined('WP_DEBUG') || WP_DEBUG !== true) {
 			return;
+		}
+
+		$caller = debug_backtrace();
+		if ($line === false) {
+			$line = $caller[0]['line'];
+		}
+		if ($file === false) {
+			$file = $caller[0]['file'];
 		}
 
 		if (function_exists('codepotent_php_error_log_viewer_log')) {
@@ -86,7 +94,7 @@ class BlockPluginUpdates{
 		$codepotent_file = plugin_dir_path(__DIR__).'codepotent-php-error-log-viewer/includes/functions.php';
 		if (file_exists($codepotent_file)) {
 			require_once($codepotent_file);
-			return codepotent_php_error_log_viewer_log($message, 'notice', $file, $line);
+			return codepotent_php_error_log_viewer_log($message, 'notice');
 		}
 
 		trigger_error(print_r($x, true), E_USER_WARNING);
