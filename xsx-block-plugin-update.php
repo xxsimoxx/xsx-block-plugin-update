@@ -3,7 +3,7 @@
  * Plugin Name: Block plugin updates
  * Plugin URI: https://software.gieffeedizioni.it
  * Description: Prevent specific plugins from updating.
- * Version: 1.0.0-rc1
+ * Version: 1.0.0
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Author: Gieffe edizioni srl
@@ -94,7 +94,7 @@ class BlockPluginUpdates{
 		$codepotent_file = plugin_dir_path(__DIR__).'codepotent-php-error-log-viewer/includes/functions.php';
 		if (file_exists($codepotent_file)) {
 			require_once($codepotent_file);
-			return codepotent_php_error_log_viewer_log($message, 'notice');
+			return codepotent_php_error_log_viewer_log($message, 'notice', $file, $line);
 		}
 
 		trigger_error(print_r($x, true), E_USER_WARNING);
