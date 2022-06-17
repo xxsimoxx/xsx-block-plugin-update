@@ -3,7 +3,7 @@
  * Plugin Name: Block plugin updates
  * Plugin URI: https://software.gieffeedizioni.it
  * Description: Prevent specific plugins from updating.
- * Version: 1.0.1
+ * Version: 1.0.2
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Author: Gieffe edizioni srl
@@ -73,13 +73,16 @@ class BlockPluginUpdates{
 
 	}
 
+	/*
+	This function is not called in released code.
+	*/
 	private function warn($message, $line = false, $file = false) {
 
 		if (!defined('WP_DEBUG') || WP_DEBUG !== true) {
 			return;
 		}
 
-		$caller = debug_backtrace();
+		$caller = debug_backtrace(); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
 		if ($line === false) {
 			$line = $caller[0]['line'];
 		}
@@ -97,7 +100,7 @@ class BlockPluginUpdates{
 			return codepotent_php_error_log_viewer_log($message, 'notice', $file, $line);
 		}
 
-		trigger_error(print_r($x, true), E_USER_WARNING);
+		trigger_error(print_r($message, true), E_USER_WARNING); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error,WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 
@@ -140,7 +143,7 @@ class BlockPluginUpdates{
 			exit();
 		}
 
-		$slug = $_POST['plugin'];
+		$slug = sanitize_text_field(wp_unslash($_POST['plugin']));
 		$status = $this->toggle($slug);
 		$icon = $status ? 'dashicons-lock' : 'dashicons-unlock';
 		$aria = $this->aria($status);
@@ -189,7 +192,7 @@ class BlockPluginUpdates{
 
 		$lock = in_array($plugin_file, $this->options()) ? 'dashicons-lock' : 'dashicons-unlock';
 		$aria = $this->aria(in_array($plugin_file, $this->options()));
-		$icon = '<a href="#" aria-label="'.$aria.'"><i class="dashicon '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i><span class="spinner"></span></a>';
+		$icon = '<a href="#" aria-label="'.$aria.'"><i class="dashicons-before '.$lock.' xsx-bpu-trigger" data-file="'.$plugin_file.'"></i><span class="spinner"></span></a>';
 
 		array_unshift($actions, $icon);
 		return $actions;
