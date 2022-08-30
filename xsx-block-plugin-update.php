@@ -3,7 +3,9 @@
  * Plugin Name: Block plugin updates
  * Plugin URI: https://software.gieffeedizioni.it
  * Description: Prevent specific plugins from updating.
- * Version: 1.0.2
+ * Version: 1.0.3
+ * Requires CP: 1.1
+ * Requires PHP: 5.6
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Author: Gieffe edizioni srl
