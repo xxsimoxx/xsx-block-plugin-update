@@ -6,7 +6,7 @@
  * Author: Simone Fioravanti
  * Author URI: https://software.gieffeedizioni.it
  * API Version: 2.0.0
- * Last modified on Update Manager release: 2.4.3
+ * Last modified on Update Manager release: 2.5.3
  * -----------------------------------------------------------------------------
  * This is free software released under the terms of the General Public License,
  * version 2, or later. It is distributed WITHOUT ANY WARRANTY; without even the
@@ -14,7 +14,7 @@
  * text of the license is available at https://www.gnu.org/licenses/gpl-2.0.txt.
  * -----------------------------------------------------------------------------
  * Copyright 2021,		John Alarcon (Code Potent)
- *           2021-2022,	Simone Fioravanti
+ *           2021-2024,	Simone Fioravanti
  * -----------------------------------------------------------------------------
  */
 
@@ -23,6 +23,11 @@ namespace XXSimoXX\bpu\UpdateClient;
 
 // EDIT: URL where Update Manager is installed; with trailing slash!
 const UPDATE_SERVER = 'https://software.gieffeedizioni.it/';
+
+// EDIT: Choose what to do in ClassicPress v.2 and above.
+//       Set to true to disable UpdateClient if updates are provided
+//       using the Classicpress Plugin Directory.
+const USE_DIRECTORY = true;
 
 // EDIT: Comment this out and fill with the first part of the url
 //       of your Download link to make sure that updates
@@ -69,6 +74,9 @@ class UpdateClient {
 	 */
 	private $component_data = '';
 
+	private $identifier     = null;
+	private $server_slug    = null;
+
 	/**
 	 * Constructor.
 	 *
@@ -93,6 +101,16 @@ class UpdateClient {
 			// Leave as-is – tutorial can be created with enough interest.
 			'post' => [],
 		];
+
+		// Should directory take over?
+		include_once ABSPATH.'wp-admin/includes/plugin.php';
+		if (
+				USE_DIRECTORY &&
+				version_compare(function_exists('classicpress_version') ? classicpress_version() : '0', '2', '>=') &&
+				is_plugin_active('classicpress-directory-integration/classicpress-directory-integration.php')
+			) {
+			return;
+		}
 
 		// Find and store the latest CP version during update process.
 		$this->cp_latest_version = $this->get_latest_version_number();
@@ -579,7 +597,7 @@ class UpdateClient {
 
 		// Initialize the data to be posted.
 		$body = apply_filters('codepotent_update_manager_filter_'.$this->config['id'].'_client_request', $this->config['post']);
-		
+
 		if ($action === 'plugin_information') {
 
 			// If querying a single plugin, assign it to the post body.
